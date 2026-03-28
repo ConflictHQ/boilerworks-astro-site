@@ -1,0 +1,52 @@
+---
+title: "Getting Started with Boilerworks"
+description: "Learn how to bootstrap a production-ready project with Boilerworks templates. From content sites to full-stack applications, get shipping faster."
+pubDate: 2026-03-15
+tags: ["boilerworks", "getting-started", "templates"]
+---
+
+Boilerworks provides production-ready project templates for modern teams. Instead of spending weeks on scaffolding, start with a solid foundation and focus on what makes your project unique.
+
+## What is Boilerworks?
+
+Boilerworks is a catalogue of full-stack and micro templates covering common web architectures:
+
+- **Content sites** (this template) -- Astro on Cloudflare Pages
+- **Full-stack apps** -- Django + Next.js, NestJS + Next.js, Rails + Hotwire, and more
+- **Edge templates** -- SSG + SSR hybrid deployments
+
+Each template ships with authentication, testing, CI/CD, linting, and documentation out of the box.
+
+## Quick Start
+
+Clone the template, install dependencies, and start building:
+
+```bash
+git clone https://github.com/ConflictHQ/boilerworks-astro-site.git my-site
+cd my-site
+npm install
+npm run dev
+```
+
+Your site is now running at `http://localhost:4321`.
+
+## Content Collections
+
+This template uses Astro's content collections for type-safe content management. Blog posts live in `src/content/blog/` as Markdown or MDX files.
+
+Each post has a typed frontmatter schema:
+
+```yaml
+---
+title: "Your Post Title"
+description: "A brief description."
+pubDate: 2026-03-15
+tags: ["tag1", "tag2"]
+---
+```
+
+## What's Next?
+
+- Add your own blog posts in `src/content/blog/`
+- Customize the theme in `src/styles/global.css`
+- Deploy to Cloudflare Pages with `npm run build`

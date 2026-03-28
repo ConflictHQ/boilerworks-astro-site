@@ -1,0 +1,40 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+import FormattedDate from "../components/FormattedDate.astro";
+import TagList from "../components/TagList.astro";
+
+interface Props {
+  title: string;
+  description: string;
+  pubDate: Date;
+  updatedDate?: Date;
+  tags?: string[];
+  heroImage?: string;
+}
+
+const { title, description, pubDate, updatedDate, tags = [], heroImage } = Astro.props;
+---
+
+<BaseLayout title={title} description={description} image={heroImage}>
+  <article class="prose">
+    {heroImage && <img src={heroImage} alt={title} class="mb-8 w-full rounded-lg" />}
+    <header class="mb-8">
+      <h1 class="mb-2 text-3xl font-bold">{title}</h1>
+      <div class="flex flex-wrap items-center gap-3 text-sm" style="color: var(--brand-muted);">
+        <FormattedDate date={pubDate} />
+        {
+          updatedDate && (
+            <span>
+              (updated <FormattedDate date={updatedDate} />)
+            </span>
+          )
+        }
+      </div>
+      {tags.length > 0 && <TagList tags={tags} class="mt-3" />}
+    </header>
+    <slot />
+  </article>
+  <div class="mt-12 border-t pt-6" style="border-color: var(--brand-border);">
+    <a href="/blog" class="text-sm">&larr; Back to blog</a>
+  </div>
+</BaseLayout>

@@ -1,0 +1,32 @@
+---
+import FormattedDate from "./FormattedDate.astro";
+import TagList from "./TagList.astro";
+
+interface Props {
+  title: string;
+  description: string;
+  pubDate: Date;
+  tags?: string[];
+  slug: string;
+}
+
+const { title, description, pubDate, tags = [], slug } = Astro.props;
+---
+
+<article
+  class="rounded-lg border p-6 transition-colors"
+  style="border-color: var(--brand-border); background-color: var(--brand-surface);"
+>
+  <a href={`/blog/${slug}`} class="no-underline" style="color: var(--brand-text);">
+    <h2 class="mb-2 text-xl font-semibold">{title}</h2>
+  </a>
+  <p class="mb-3 text-sm" style="color: var(--brand-muted);">
+    {description}
+  </p>
+  <div class="flex flex-wrap items-center gap-3">
+    <span class="text-xs" style="color: var(--brand-muted);">
+      <FormattedDate date={pubDate} />
+    </span>
+    {tags.length > 0 && <TagList tags={tags} />}
+  </div>
+</article>

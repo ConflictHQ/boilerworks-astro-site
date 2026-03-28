@@ -1,0 +1,43 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import BlogPostCard from "../components/BlogPostCard.astro";
+import { getCollection } from "astro:content";
+
+const posts = (await getCollection("blog", ({ data }) => !data.draft))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 3);
+---
+
+<BaseLayout title="Home">
+  <section class="mb-16">
+    <h1 class="mb-4 text-4xl font-bold">Boilerworks</h1>
+    <p class="text-lg" style="color: var(--brand-muted);">
+      Production-ready project templates for modern teams. Ship faster with battle-tested
+      scaffolding -- from static sites to full-stack applications.
+    </p>
+  </section>
+
+  {
+    posts.length > 0 && (
+      <section>
+        <h2 class="mb-6 text-2xl font-bold">Latest Posts</h2>
+        <div class="flex flex-col gap-4">
+          {posts.map((post) => (
+            <BlogPostCard
+              title={post.data.title}
+              description={post.data.description}
+              pubDate={post.data.pubDate}
+              tags={post.data.tags}
+              slug={post.id}
+            />
+          ))}
+        </div>
+        <div class="mt-6">
+          <a href="/blog" class="text-sm">
+            View all posts &rarr;
+          </a>
+        </div>
+      </section>
+    )
+  }
+</BaseLayout>

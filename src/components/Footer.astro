@@ -1,0 +1,28 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer
+  class="border-t"
+  style="border-color: var(--brand-border); background-color: var(--brand-surface);"
+>
+  <div class="mx-auto max-w-4xl px-6 py-8">
+    <div class="flex flex-col items-center justify-between gap-4 sm:flex-row">
+      <p class="text-sm" style="color: var(--brand-muted);">
+        &copy; {year} Boilerworks. All rights reserved.
+      </p>
+      <div class="flex gap-4">
+        <a
+          href="https://github.com/ConflictHQ/boilerworks-astro-site"
+          class="text-sm"
+          style="color: var(--brand-muted);"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          GitHub
+        </a>
+        <a href="/rss.xml" class="text-sm" style="color: var(--brand-muted);">RSS</a>
+      </div>
+    </div>
+  </div>
+</footer>

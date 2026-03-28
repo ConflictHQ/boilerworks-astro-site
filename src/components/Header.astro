@@ -1,0 +1,54 @@
+---
+const navItems = [
+  { href: "/", label: "Home" },
+  { href: "/blog", label: "Blog" },
+  { href: "/tags", label: "Tags" },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<header
+  class="border-b"
+  style="border-color: var(--brand-border); background-color: var(--brand-surface);"
+>
+  <nav class="mx-auto flex max-w-4xl items-center justify-between px-6 py-4">
+    <a
+      href="/"
+      class="flex items-center gap-2 font-bold no-underline"
+      style="color: var(--brand-text);"
+    >
+      <img src="/boilerworks-logo.svg" alt="Boilerworks" class="h-8 w-8" />
+      <span>Boilerworks</span>
+    </a>
+    <ul class="flex items-center gap-6">
+      {
+        navItems.map(({ href, label }) => (
+          <li>
+            <a
+              href={href}
+              class:list={[
+                "text-sm transition-colors",
+                currentPath === href || (href !== "/" && currentPath.startsWith(href))
+                  ? "font-semibold"
+                  : "",
+              ]}
+              style={
+                currentPath === href || (href !== "/" && currentPath.startsWith(href))
+                  ? "color: var(--brand-primary);"
+                  : "color: var(--brand-muted);"
+              }
+            >
+              {label}
+            </a>
+          </li>
+        ))
+      }
+      <li>
+        <a href="/rss.xml" class="text-sm" style="color: var(--brand-muted);" title="RSS Feed">
+          RSS
+        </a>
+      </li>
+    </ul>
+  </nav>
+</header>
