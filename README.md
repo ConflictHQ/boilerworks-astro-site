@@ -80,3 +80,7 @@ For SSR routes, uncomment the `@astrojs/cloudflare` adapter in `astro.config.mjs
 - Vitest for testing
 - ESLint + Prettier
 - GitHub Actions CI (lint, build, test, audit)
+
+---
+
+Boilerworks is a [Conflict](https://weareconflict.com) brand. CONFLICT is a registered trademark of Conflict LLC.
