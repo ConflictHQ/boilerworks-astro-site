@@ -3,13 +3,12 @@ import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import tailwindcss from "@tailwindcss/vite";
 
-// NOTE: For SSR routes, add @astrojs/cloudflare adapter:
-//   import cloudflare from "@astrojs/cloudflare";
-//   adapter: cloudflare(),
-//   output: "hybrid",
+// SSR adapter: uncomment when deploying to Cloudflare Workers
+// import cloudflare from "@astrojs/cloudflare";
 
 export default defineConfig({
   site: "https://example.com",
+  // adapter: cloudflare(),
   integrations: [mdx(), sitemap()],
   vite: {
     plugins: [tailwindcss()],

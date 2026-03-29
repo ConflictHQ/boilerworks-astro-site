@@ -1,14 +1,1 @@
-astro-site template build complete.
-
-Build verified:
-- Astro 6 with content collections (blog, tags)
-- MDX support
-- Tailwind CSS v4
-- Boilerworks dark theme
-- RSS feed
-- Sitemap
-- SEO meta tags (OG, Twitter)
-- Vitest (17 tests passing)
-- ESLint + Prettier
-- CI pipeline (lint, build, test, audit)
-- Cloudflare Pages ready (static output, adapter commented for SSR opt-in)
+2026-03-29T14:26:37Z
