@@ -83,4 +83,4 @@ For SSR routes, uncomment the `@astrojs/cloudflare` adapter in `astro.config.mjs
 
 ---
 
-Boilerworks is a [Conflict](https://weareconflict.com) brand. CONFLICT is a registered trademark of Conflict LLC.
+Boilerworks is a [CONFLICT](https://weareconflict.com) brand. CONFLICT is a registered trademark of CONFLICT LLC.
