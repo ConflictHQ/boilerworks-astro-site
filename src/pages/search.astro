@@ -1,14 +1,14 @@
 ---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
 
-import BaseLayout from '../layouts/BaseLayout.astro';
-import { getCollection } from 'astro:content';
-
-const query = Astro.url.searchParams.get('q') || '';
-const allPosts = await getCollection('blog', ({ data }) => !data.draft);
+const query = Astro.url.searchParams.get("q") || "";
+const allPosts = await getCollection("blog", ({ data }) => !data.draft);
 const results = query
-  ? allPosts.filter((p) =>
-      p.data.title.toLowerCase().includes(query.toLowerCase()) ||
-      p.data.description.toLowerCase().includes(query.toLowerCase())
+  ? allPosts.filter(
+      (p) =>
+        p.data.title.toLowerCase().includes(query.toLowerCase()) ||
+        p.data.description.toLowerCase().includes(query.toLowerCase())
     )
   : [];
 ---
@@ -34,25 +34,34 @@ const results = query
       </div>
     </form>
 
-    {query && (
-      <p class="mb-4 text-gray-400">
-        {results.length} result{results.length !== 1 ? 's' : ''} for "{query}"
-      </p>
-    )}
+    {
+      query && (
+        <p class="mb-4 text-gray-400">
+          {results.length} result{results.length !== 1 ? "s" : ""} for "{query}"
+        </p>
+      )
+    }
 
     <ul class="space-y-4">
-      {results.map((post) => (
-        <li class="rounded-lg border border-gray-800 bg-gray-900 p-4">
-          <a href={`/blog/${post.id}`} class="text-lg font-semibold text-red-400 hover:text-red-300">
-            {post.data.title}
-          </a>
-          <p class="mt-1 text-sm text-gray-400">{post.data.description}</p>
-        </li>
-      ))}
+      {
+        results.map((post) => (
+          <li class="rounded-lg border border-gray-800 bg-gray-900 p-4">
+            <a
+              href={`/blog/${post.id}`}
+              class="text-lg font-semibold text-red-400 hover:text-red-300"
+            >
+              {post.data.title}
+            </a>
+            <p class="mt-1 text-sm text-gray-400">{post.data.description}</p>
+          </li>
+        ))
+      }
     </ul>
 
-    {query && results.length === 0 && (
-      <p class="text-gray-500">No posts found matching your search.</p>
-    )}
+    {
+      query && results.length === 0 && (
+        <p class="text-gray-500">No posts found matching your search.</p>
+      )
+    }
   </main>
 </BaseLayout>

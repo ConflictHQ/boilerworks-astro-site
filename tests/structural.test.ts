@@ -68,13 +68,7 @@ describe("No broken internal links in pages", () => {
   const pageFiles = getPageFiles(pagesDir);
 
   // Known static routes that exist in the project
-  const knownRoutes = new Set([
-    "/",
-    "/blog",
-    "/tags",
-    "/rss.xml",
-    "/sitemap-index.xml",
-  ]);
+  const knownRoutes = new Set(["/", "/blog", "/tags", "/rss.xml", "/sitemap-index.xml"]);
 
   // Dynamic route patterns
   const dynamicPatterns = [/^\/blog\//, /^\/tags\//];
