@@ -79,7 +79,7 @@ For SSR routes, uncomment the `@astrojs/cloudflare` adapter in `astro.config.mjs
 - SEO meta tags (Open Graph, Twitter cards)
 - Vitest for testing
 - ESLint + Prettier
-- GitHub Actions CI (lint, build, test, audit)
+- GitHub Actions CI (lint, build, test, e2e, audit)
 
 ---
 

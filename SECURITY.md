@@ -23,11 +23,12 @@ We will acknowledge your report within 48 hours and aim to release a fix within 
 
 ## Security Best Practices
 
-When deploying Boilerworks:
+When deploying a site built from this template:
 
-- Change all default credentials (database, MinIO, session secret)
-- Use HTTPS in production
-- Set `NODE_ENV=production`
-- Configure `CORS_ORIGINS` to your domain only
-- Use strong Auth0 credentials
-- Review the security hardening in `bootstrap.md`
+- Never commit secrets (API keys, tokens) to the repository -- this is a
+  static site; anything in the build output is public
+- Use HTTPS in production (Cloudflare Pages provides this by default)
+- Set security headers (`Content-Security-Policy`, `X-Content-Type-Options`,
+  `Referrer-Policy`) via your host, e.g. a `_headers` file on Cloudflare Pages
+- Keep dependencies current -- CI runs `npm audit --audit-level=high`
+- If you enable SSR routes, validate and sanitize all query/form input

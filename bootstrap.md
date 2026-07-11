@@ -44,7 +44,7 @@
 
 ### CI
 
-- GitHub Actions: lint, build, test, audit
+- GitHub Actions: lint, build, test, e2e (Playwright), audit
 - All jobs run on Node 22
 
 ## Adding SSR
@@ -52,5 +52,6 @@
 To add server-side rendered routes:
 
 1. Uncomment the Cloudflare adapter in `astro.config.mjs`
-2. Set `output: "hybrid"` in the config
+2. Keep the default output mode -- do not set `output: "hybrid"` (removed in Astro 5;
+   static output with per-route opt-out is the replacement)
 3. Add `export const prerender = false;` in SSR pages/endpoints

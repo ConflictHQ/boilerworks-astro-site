@@ -3,7 +3,7 @@ import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import tailwindcss from "@tailwindcss/vite";
 
-// SSR adapter: uncomment when deploying to Cloudflare Workers
+// SSR adapter: uncomment when deploying SSR routes to Cloudflare Pages
 // import cloudflare from "@astrojs/cloudflare";
 
 export default defineConfig({

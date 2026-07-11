@@ -5,6 +5,10 @@ dist/
 # deps
 node_modules/
 
+# test output
+test-results/
+playwright-report/
+
 # env
 .env
 .env.local
